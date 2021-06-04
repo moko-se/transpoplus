@@ -1,0 +1,296 @@
+/*fichier : css/main.scss */
+
+/* import du fichier _reset */
+@import "reset";
+/* import du fichier _variables */
+@import "variables";
+/* google fonts */
+
+/* Police d'ecriture par default*/
+@font-face {
+        font-family: "Ubuntu";
+
+        src: url("../webfonts/Ubuntu-Regular.woff") format("woff"),
+        /* Moderne Browsers */
+                 url("../webfonts/Ubuntu-Regular.woff2") format("woff2");
+                 /* Modern Browsers */
+        font-weight:  normal;
+}
+@font-face {
+        font-family: "Ubuntu";
+
+        src: url("../webfonts/Ubuntu-bold.woff") format("woff"),
+        /* Moderne Browsers */
+                 url("../webfonts/Ubuntu-bold.woff2") format("woff2");
+                 /* Modern Browsers */
+        font-weight:  bold;
+}
+@font-face {
+    font-family: "Roboto";
+
+    src: url("../webfonts/Roboto-Regular.woff") format("woff"),
+    /* Moderne Browsers */
+             url("../webfonts/Roboto-Regular.woff2") format("woff2");
+             /* Modern Browsers */
+    font-weight:  normal;
+}
+@font-face {
+    font-family: "Roboto";
+
+    src: url("../webfonts/Roboto-bold.woff") format("woff"),
+    /* Moderne Browsers */
+             url("../webfonts/Roboto-bold.woff2") format("woff2");
+             /* Modern Browsers */
+    font-weight:  bold;
+}
+
+html, body{
+	font-family: Roboto;
+	font-size: 1.0rem;
+	box-sizing: border-box;
+    background: $light;
+}
+/*///////////////////////////////*/
+a{
+	text-decoration: none;
+	color: inherit;
+}
+.wrapper{
+	width: 80%;
+	margin: auto;
+}
+/*///////////////////////////////*/
+.title_h3{
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: $dark;
+    margin-bottom: 5px;
+}
+
+.navbar{
+    background: transparent !important;
+    
+}
+
+
+.navbar-brand{
+    figure{
+        width: 100px;
+        height: 50px;
+        img, svg{
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+    }
+}
+
+.display-6{
+    font-weight: 600;
+}
+.hrp{
+	width:90%;
+	height:2px;
+	background:#dfe6e9;
+	border-radius:5px;
+	.progress_bar{
+		width:45%;
+		height:100%;
+		background:$primary;
+		border-radius:5px;
+	}
+}
+// CONTENT
+
+//--- landing ---\\
+#landing{
+    background: $secondary;
+    min-height: 100vh;
+    .circle{
+        height: 55px;
+        width: 55px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+
+        position: absolute;
+        bottom: 4px;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        transition: bottom ease-in-out 150ms;
+        &:hover{
+            bottom: 7px;
+        }
+        &::before,
+        &::after{
+            content: " ";
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            left: 0;
+            border-radius: 50%;
+        }
+        &::before{
+            content: "\f107";
+            font-family: "Font Awesome 5 Free";
+            font-weight: 600;
+            font-size: 1.3em;
+            color: $light;
+
+            background: $primary;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+            transition: background-color 100ms linear;
+        }
+        &:hover::after{
+            background: $primary;
+            z-index: 1;
+            animation: pulse 1250ms infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                opacity: 0.75;
+            }
+            100% {
+                transform: scale(1.35);
+                opacity: 0;
+            }
+        }
+    }
+    .h-100{
+        background: $light;
+        min-height: 90% !important;
+        padding-top: 145px;
+        .container{
+            .row{
+                display: flex;
+                align-items: center;
+                div{
+                    .btn-warning{
+                        background: $primary !important;
+                    }
+                    &:last-child{
+                        figure{
+                            max-height: 400px;
+                            max-width: 500px;
+                            img{
+                                width: 100%;
+                                height: 100%;
+                                object-fit: contain;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+//--- Service ---\\
+#service{
+    background: $secondary;
+    padding-top: 90px;
+    min-height: 100vh;
+    .container{
+        color: $light;
+        .row{
+            .box{
+                &:last-child{
+                    .bd-highlight{
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: flex-start;
+                        .icon{
+                            order: -1;
+                            background: rgba($color: $light, $alpha: 0.8);
+                            width: 40px;
+                            height: 40px;
+                            border-radius: 50%;
+
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            .fas{
+                                color: $secondary;
+                                font-size: 1.1rem;
+                            }
+                        }
+                        h3{
+                            color: $primary;
+                            font-weight: 600;
+                            margin-bottom: 5px;
+                        }
+                    }
+                }
+            }
+
+           
+        }
+    }
+}
+
+//--- About ---\\
+#about{
+    background: $light;
+    min-height: 100vh;
+    & > .row{
+        div{
+            min-height: 100vh;
+            &:first-child{
+                figure{
+                    
+                    height: 100%;
+                    img{
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                    }
+                }
+            }
+            &:last-child{
+                padding-top: 70px;
+                .apropos-react{
+                    & > li{
+                        position:relative;
+                        margin-bottom: 10px;
+                        &::before{
+                            content: "\f105";
+                            font-family: "Font Awesome 5 Free";
+                            font-weight: 600;
+                            font-size: 1.3em;
+                            color: $secondary;
+                            
+                            position: absolute;
+                            top: 0;
+                            left: -20px;
+                        }
+                        figure{
+                            width: 50px;
+                            height: 50px;
+                            img{
+                                width: 100%;
+                                height: 100%;
+                                object-fit: contain;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+//--- Footer ---\\
+#footer{
+    background-color: #F7F7F4; 
+    & > div{
+        font-size: 0.8rem;
+    }
+}
